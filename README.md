@@ -70,5 +70,4 @@ CREATE TABLE repayments (
 
 node app.js
 The server will start at: "http://localhost:3000"
-6. Test Using Postman or HTTP Client
-Use Postman or VS Code's REST client (.http file) to send requests and test endpoints like /register, /login, /customers, /loans, etc.
+6. Tested using .http file to send requests and tested endpoints like /register, /login, /customers, /loans, etc.
