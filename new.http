@@ -1,0 +1,87 @@
+
+
+
+### Login as Shopkeeper
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "tsg",
+  "password": "tsg123"
+}
+
+
+
+
+### Register New Shopkeeper
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "email": "tsg",
+  "password": "tsg123"
+}
+
+
+### Add Customer
+POST http://localhost:3000/customers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzczOTI0fQ.0G7UL-XhNg2UThDyT07G99wHT1znyunauscAxfVP1Hg
+
+{
+  "name": "Amit Kumar",
+  "phone": "9876543210",
+  "address": "Sector 12, Noida",
+  "trust_score": 9,
+  "credit_limit": 8000
+}
+
+
+GET http://localhost:3000/customers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzczOTI0fQ.0G7UL-XhNg2UThDyT07G99wHT1znyunauscAxfVP1Hg
+
+
+
+
+### Add a Loan
+POST http://localhost:3000/loans
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzczOTI0fQ.0G7UL-XhNg2UThDyT07G99wHT1znyunauscAxfVP1Hg
+
+{
+  "customer_id": 1,
+  "description": "2 bags of rice",
+  "amount": 1500,
+  "issue_date": "2025-05-04",
+  "due_date": "2025-05-20"
+}
+
+
+
+### Get All Loans for Logged-in Shopkeeper
+GET http://localhost:3000/loans
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzczOTI0fQ.0G7UL-XhNg2UThDyT07G99wHT1znyunauscAxfVP1Hg
+
+
+
+### Repay Loan with ID 1
+POST http://localhost:3000/loans/1/repay
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2MzczOTI0fQ.0G7UL-XhNg2UThDyT07G99wHT1znyunauscAxfVP1Hg
+
+{
+  "amount": 500,
+  "date": "2025-05-04"
+}
+
+
+
+### Get Loan Summary for Shopkeeper
+GET http://localhost:3000/summary
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2Mzc0NTQ0fQ.S56q5omeviTZ3sxsU5bF-y24z0o3UwzyXsbN3fzjtNQ
+
+
+
+### Get Overdue Loans
+GET http://localhost:3000/overdue
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ2Mzc0NTQ0fQ.S56q5omeviTZ3sxsU5bF-y24z0o3UwzyXsbN3fzjtNQ
