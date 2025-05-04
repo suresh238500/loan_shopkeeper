@@ -21,7 +21,7 @@ function auth(req, res, next) {
   }
 }
 
-// ---------- AUTH ----------
+//  AUTH 
 /*app.post('/register', async (req, res) => {
   const {email, password} = req.body
   const hash = await bcrypt.hash(password, 10)
@@ -64,7 +64,7 @@ app.post('/login', (req, res) => {
   })
 })
 
-// ---------- CUSTOMERS ----------
+//  CUSTOMERS 
 app.post('/customers', auth, (req, res) => {
   const {name, phone, address, trust_score, credit_limit} = req.body
   db.run(
@@ -88,7 +88,7 @@ app.get('/customers', auth, (req, res) => {
   )
 })
 
-// ---------- LOANS ----------
+//  LOANS 
 app.post('/loans', auth, (req, res) => {
   const {customer_id, description, amount, issue_date, due_date} = req.body
   db.run(
@@ -121,7 +121,7 @@ app.get('/loans', auth, (req, res) => {
   )
 })
 
-// ---------- REPAYMENTS ----------
+//  REPAYMENTS 
 app.post('/loans/:id/repay', auth, (req, res) => {
   const loanId = req.params.id
   const {amount, date} = req.body
@@ -159,7 +159,7 @@ app.post('/loans/:id/repay', auth, (req, res) => {
   )
 })
 
-// ---------- SUMMARY ----------
+//  SUMMARY 
 app.get('/summary', auth, (req, res) => {
   db.all(
     'SELECT * FROM loans WHERE user_id = ?',
@@ -191,7 +191,7 @@ app.get('/summary', auth, (req, res) => {
   )
 })
 
-// ---------- OVERDUE ----------
+//  OVERDUE 
 app.get('/overdue', auth, (req, res) => {
   db.all(
     `SELECT c.name, l.*
@@ -205,7 +205,7 @@ app.get('/overdue', auth, (req, res) => {
   )
 })
 
-// ---------- SERVER ----------
+//  SERVER 
 app.listen(process.env.PORT, () => {
   console.log(`Server running on port ${process.env.PORT}`)
 })
