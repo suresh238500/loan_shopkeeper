@@ -29,7 +29,7 @@ loans
 
 repayments
 
-Queries ude to create Tables:
+Queries used to create Tables:
 
 CREATE TABLE users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
